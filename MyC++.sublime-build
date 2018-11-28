@@ -1,0 +1,4 @@
+{
+    "cmd": ["g++ ${file} -o ${file_path}/${file_base_name} && echo 'Build Finished' && ${file_path}/${file_base_name}"],
+    "shell" : true
+}
