@@ -72,11 +72,10 @@ filetype plugin indent on    " required
 let mapleader = ","
 
 "comment empty lines as well
-let g:NERDCommentEmptyLines=1
+let g:NERDCommentEmptyLines=0
 
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 
 
 "===============
@@ -85,13 +84,18 @@ let g:NERDDefaultAlign = 'left'
 
 let g:indentLine_char = '|'
 
-"==========================================================
-"==========================================================
+"===============
+"=== Shift lines via shift UP and shift DOWN
+"===============
+
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
 
 "=================
 " COLORS
 "=================
-
 
 " Set solarised color scheme
 syntax enable
@@ -123,15 +127,7 @@ set nolist
 " line wrap with indent kept
 set breakindent  
 
-" moving along visual lines, not physical lines
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-noremap  <buffer> <silent> 0 g0
-noremap  <buffer> <silent> $ g$
-
-
 " STATUS LINE
-
 " First define new highlight groups
 hi User1 ctermbg=none
 
@@ -159,7 +155,6 @@ set showcmd                 "shows which command is active
 " SEARCHING
 "=================
 
-
 " Ignoring case
 set ignorecase
 
@@ -169,7 +164,6 @@ set incsearch
 " Highlight things that we find with the search
 set hlsearch
 
-
 "=================
 " VIM GENERAL
 "=================
@@ -177,21 +171,12 @@ set hlsearch
 " Enable mouse support in console
 set mouse=a
 
-" Split screen navigation key mapping change
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" enable 'intelligent' pasting
-"set paste
-
 " enable copypasting between sessions
 set clipboard=unnamedplus
 set showmatch
 set matchtime=3
 
-set pastetoggle=<F2>
+set pastetoggle=<F10>
 
 hi MatchParen cterm=none ctermbg=green ctermfg=blue
 
@@ -200,9 +185,7 @@ set backspace=indent,eol,start
 
 map <C-t> :NERDTreeToggle<CR>
 
-set nocompatible
-set runtimepath+=~/.vim/bundle/YouCompleteMe
-filetype on
+
 "=================
 " SYNTAX AND TABS
 "=================
@@ -212,6 +195,9 @@ filetype on
 filetype plugin on "needed for plugins: nerdcommenter
 filetype indent on "needed by  plugin slim
 set grepprg=grep\ -nH\ $*
+
+set runtimepath+=~/.vim/bundle/YouCompleteMe
+filetype on
 
 " Who doesn't like autoindent?
 set autoindent
@@ -223,13 +209,6 @@ set shiftwidth=4
 
 " tab and backspace are smart
 set smarttab                  
-
-" Fortran highlighting
-let fortran_free_source=1
-let fortran_have_tabs=1
-let fortran_more_precise=1
-let fortran_do_enddo=1
-
 
 "=================
 " Python utilities
@@ -270,7 +249,6 @@ augroup project
     autocmd bufwritepost,filewritepost *.c,*.cpp execute "normal `a"
 augroup END
 
-"=================
 "=================
 
 

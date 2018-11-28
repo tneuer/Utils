@@ -26,7 +26,7 @@ shopt -s checkwinsize
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+# shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -39,7 +39,7 @@ fi
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+# force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -88,23 +88,6 @@ fi
 # colored GCC warnings and errors
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# some more aliases
-alias ll='ls -lF'
-alias la='ls -A'
-alias l='ls -CF'
-alias scac='source activate'
-
-alias uzh='ssh tneuer@linux.physik.uzh.ch'
-alias vesta='ssh tneuer@cluster.s3it.uzh.ch'
-alias toaws='ssh -i ml.pem ubuntu@machine.epha.ch'
-vestaname='tneuer@cluster.s3it.uzh.ch:/home/cluster/tneuer'
-awsname='ubuntu@machine.epha.ch:/home/ubuntu/tneuer'
-
-alias bap='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/BachelorThesis/workingDir'
-alias curr='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/4.Jahr/HS17'
-alias epha='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/EPha'
-alias exthome='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/'
-
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -137,16 +120,21 @@ alias rm="rm -i"
 alias mv="mv -i"
 alias cp="cp -i"
 
+# some more aliases
+alias ll='ls -lF'
+alias la='ls -A'
+alias l='ls -CF'
+alias scac='source activate'
+alias vil="vim  +\"'\"0""'"
 
+alias uzh='ssh tneuer@linux.physik.uzh.ch'
+alias vesta='ssh tneuer@cluster.s3it.uzh.ch'
+
+alias exthome='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/'
+
+# Enhance fontsize
 xdotool key Ctrl+plus
 xdotool key Ctrl+plus
-xdotool key Ctrl+plus
-
-
-export AWS_ACCESS_KEY_ID=AKIAIBL7QAEREMPHA7KQ
-export AWS_SECRET_ACCESS_KEY=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
-export AWS_DEFAULT_REGION=eu-west-1
-export AWS_REGION=eu-west-1
 
 # added by Anaconda3 installer
 export PATH="/home/tneuer/anaconda3/bin:$PATH"
