@@ -126,18 +126,32 @@ alias la='ls -A'
 alias l='ls -CF'
 alias scac='source activate'
 alias vil="vim  +\"'\"0""'"
-
-alias uzh='ssh tneuer@linux.physik.uzh.ch'
-alias vesta='ssh tneuer@cluster.s3it.uzh.ch'
-
 alias exthome='cd /media/tneuer/TOSHIBA\ EXT/MyData/Uni/'
 
-# Enhance fontsize
-xdotool key Ctrl+plus
-xdotool key Ctrl+plus
+# Master thesis 
+PORT="9991"
+PORT2="9992"
+
+alias farmtunnel='ssh -L $PORT:localhost:$PORT farm'
+alias farmtunnel2='ssh -L $PORT2:localhost:$PORT2 farm2'
+
+sshfs -o allow_other,IdentityFile=/home/tneuer/.ssh/id_rsa tneuer@farm-ui.physik.uzh.ch:/home/uzh/tneuer/ /home/tneuer/hep
 
 # added by Anaconda3 installer
 export PATH="/home/tneuer/anaconda3/bin:$PATH"
 
 # for tensorflow
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64/
+
+# change bracketkeys
+## run xev to get keycodes
+## run xmodmap -pke <~/keymaptable to get keymaptable in home directory
+xmodmap -e 'keycode 34 = bracketleft udiaeresis egrave' 
+xmodmap -e 'keycode 35 = bracketright exclam' 
+xmodmap -e 'keycode 48 = braceleft adiaeresis agrave' 
+xmodmap -e 'keycode 51 = braceright dollar' 
+xmodmap -e 'keycode 47 = parenleft odiaeresis' 
+xmodmap -e 'keycode 110 = Prior' 
+xmodmap -e 'keycode 112 = Home' 
+xmodmap -e 'keycode 115 = Next' 
+xmodmap -e 'keycode 117 = End' 
